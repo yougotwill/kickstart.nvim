@@ -4,4 +4,15 @@
 -- See the kickstart.nvim README for more information
 vim.g.netrw_liststyle = 3
 
+-- use system clipboard
+if vim.fn.has 'clipboard' == 1 then
+  if vim.fn.has 'unnamedplus' == 1 then
+    -- When possible use + register for copy-paste
+    vim.opt.clipboard = 'unnamedplus,unnamed'
+  else
+    -- On mac and Windows, use * register for copy-paste
+    vim.opt.clipboard = 'unnamed'
+  end
+end
+
 return {}
