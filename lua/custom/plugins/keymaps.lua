@@ -3,7 +3,6 @@ return {
   vim.keymap.set('n', 'gW', '<cmd>bdelete!<cr>', { desc = 'Close the current buffer (force)' }),
   vim.keymap.set('n', 'gt', '<cmd>terminal<cr>', { desc = 'Open terminal buffer' }),
   vim.keymap.set('n', 'gs', '<cmd>Telescope git_status<cr>', { desc = 'Show git status' }),
-  vim.keymap.set('n', '<c-W><Bslash>', '<cmd>vsplit<cr>', { desc = 'Split window vertically' }),
   vim.keymap.set('n', '<leader>wm', '<cmd>mksession<cr>', { desc = '[W]orkspace [M]ake session' }),
   vim.keymap.set('n', '<leader>wM', '<cmd>mksession!<cr>', { desc = '[W]orkspace [M]ake session (force)' }),
   vim.keymap.set('n', '<leader>wl', '<cmd>source Session.vim<cr>', { desc = '[W]orkspace [L]oad session' }),

@@ -3,15 +3,10 @@
 --
 -- See the kickstart.nvim README for more information
 
--- use system clipboard
-if vim.fn.has 'clipboard' == 1 then
-  if vim.fn.has 'unnamedplus' == 1 then
-    -- When possible use + register for copy-paste
-    vim.opt.clipboard = 'unnamedplus,unnamed'
-  else
-    -- On mac and Windows, use * register for copy-paste
-    vim.opt.clipboard = 'unnamed'
-  end
-end
+-- indentation
+-- 2 spaces instead of tab
+vim.opt.expandtab = true
+vim.opt.tabstop = 2
+vim.opt.shiftwidth = 2
 
 return {}
