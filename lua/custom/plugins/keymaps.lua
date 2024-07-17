@@ -1,4 +1,6 @@
 return {
+  vim.keymap.set('n', '<C-,>', '<cmd>BufferPrevious<cr>', { desc = 'Move to the previous buffer' }),
+  vim.keymap.set('n', '<C-.>', '<cmd>BufferNext<cr>', { desc = 'Move to the next buffer' }),
   vim.keymap.set('n', 'gw', '<cmd>BufferClose<cr>', { desc = 'Close the current buffer' }),
   vim.keymap.set('n', 'gW', '<cmd>BufferClose!<cr>', { desc = 'Close the current buffer (force)' }),
   vim.keymap.set('n', 'gt', '<cmd>terminal<cr>', { desc = 'Open terminal buffer' }),
