@@ -204,6 +204,15 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   end,
 })
 
+-- copilot-cmp
+local has_words_before = function()
+  if vim.bo.buftype == 'prompt' then
+    return false
+  end
+  local line, col = unpack(vim.api.nvim_win_get_cursor(0))
+  return col ~= 0 and vim.api.nvim_buf_get_text(0, line - 1, 0, line - 1, col, {})[1]:match '^%s*$' == nil
+end
+
 -- [[ Install `lazy.nvim` plugin manager ]]
 --    See `:help lazy.nvim.txt` or https://github.com/folke/lazy.nvim for more info
 local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
@@ -672,7 +681,10 @@ require('lazy').setup({
         --
         -- You can use a sub-list to tell conform to run *until* a formatter
         -- is found.
-        -- javascript = { { "prettierd", "prettier" } },
+        javascript = { { 'eslintd', 'prettierd', 'prettier' } },
+        javascriptreact = { { 'eslintd', 'prettierd', 'prettier' } },
+        typescript = { { 'eslintd', 'prettierd', 'prettier' } },
+        typescriptreact = { { 'eslintd', 'prettierd', 'prettier' } },
       },
     },
   },
@@ -749,7 +761,15 @@ require('lazy').setup({
           -- If you prefer more traditional completion keymaps,
           -- you can uncomment the following lines
           ['<CR>'] = cmp.mapping.confirm { select = true },
-          ['<Tab>'] = cmp.mapping.select_next_item(),
+          -- ['<Tab>'] = cmp.mapping.select_next_item(),
+          -- copilot-cmp
+          ['<Tab>'] = vim.schedule_wrap(function(fallback)
+            if cmp.visible() and has_words_before() then
+              cmp.select_next_item { behavior = cmp.SelectBehavior.Select }
+            else
+              fallback()
+            end
+          end),
           ['<S-Tab>'] = cmp.mapping.select_prev_item(),
 
           -- Manually trigger a completion from nvim-cmp.
@@ -780,6 +800,9 @@ require('lazy').setup({
           --    https://github.com/L3MON4D3/LuaSnip?tab=readme-ov-file#keymaps
         },
         sources = {
+          -- Copilot Source
+          { name = 'copilot', group_index = 2 },
+          -- Other Sources
           { name = 'nvim_lsp' },
           { name = 'luasnip' },
           { name = 'path' },
