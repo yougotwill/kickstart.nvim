@@ -366,6 +366,7 @@ require('lazy').setup({
         --     i = { ['<c-enter>'] = 'to_fuzzy_refine' },
         --   },
         -- },
+        defaults = require('telescope.themes').get_ivy {},
         -- pickers = {}
         extensions = {
           ['ui-select'] = {
