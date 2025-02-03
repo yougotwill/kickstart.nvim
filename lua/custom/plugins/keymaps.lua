@@ -1,0 +1,17 @@
+return {
+  vim.keymap.set('n', 'gt', '<cmd>terminal<cr>', { desc = 'Open terminal buffer' }),
+  vim.keymap.set('n', 'gs', '<cmd>Telescope git_status<cr>', { desc = 'Show git status' }),
+  vim.keymap.set('n', 'gR', '<cmd>BufferRestore<cr>', { desc = '[R]estore last closed buffer' }),
+  vim.keymap.set('n', '<leader>w', '<cmd>BufferClose<cr>', { desc = 'Close the current buffer' }),
+  vim.keymap.set('n', '<leader>W', '<cmd>BufferClose!<cr>', { desc = 'Close the current buffer (force)' }),
+  vim.keymap.set('n', '<leader>,', '<cmd>BufferPrevious<cr>', { desc = 'Move to the previous buffer' }),
+  vim.keymap.set('n', '<leader>.', '<cmd>BufferNext<cr>', { desc = 'Move to the next buffer' }),
+  vim.keymap.set('n', '<leader>wm', '<cmd>mksession<cr>', { desc = '[W]orkspace [M]ake session' }),
+  vim.keymap.set('n', '<leader>wM', '<cmd>mksession!<cr>', { desc = '[W]orkspace [M]ake session (force)' }),
+  vim.keymap.set('n', '<leader>wl', '<cmd>source Session.vim<cr>', { desc = '[W]orkspace [L]oad session' }),
+  vim.keymap.set('n', '<leader>wd', '<cmd>!rm Session.vim<cr>', { desc = '[W]orkspace [D]elete session' }),
+  vim.keymap.set('n', '<leader>sj', '<cmd>Telescope jumplist<cr>', { desc = '[S]earch [J]umplist' }),
+  vim.keymap.set('n', '<leader>sm', '<cmd>Telescope marks<cr>', { desc = '[S]earch [M]arks' }),
+  vim.keymap.set('n', '<leader>sc', '<cmd>Telescope git_bcommits<cr>', { desc = '[S]earch branch [C]ommits' }),
+  vim.keymap.set('n', '<leader>cr', '<cmd>LspRestart<cr>', { desc = 'LSP: [C]ode [R]estart servers' }),
+}
