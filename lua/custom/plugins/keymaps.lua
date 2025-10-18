@@ -3,6 +3,7 @@ return {
   vim.keymap.set('n', '<leader>P', '<cmd>BufferPin<cr>', { desc = 'Pin buffer' }),
   vim.keymap.set('n', '<leader>w', '<cmd>BufferClose<cr>', { desc = 'Close the current buffer' }),
   vim.keymap.set('n', '<leader>W', '<cmd>BufferClose!<cr>', { desc = 'Close the current buffer (force)' }),
+  vim.keymap.set('n', '<leader>q', '<cmd>wqa<cr>', { desc = 'Close and [q]uit' }),
   vim.keymap.set('n', '<leader>`', '<cmd>terminal<cr>', { desc = 'Open terminal buffer' }),
   vim.keymap.set('n', '<leader>wm', '<cmd>mksession<cr>', { desc = '[W]orkspace [M]ake session' }),
   vim.keymap.set('n', '<leader>wM', '<cmd>mksession!<cr>', { desc = '[W]orkspace [M]ake session (force)' }),
